@@ -24,8 +24,25 @@ fun main(args: Array<String>) {
 //            a1.javaClass.name = int
 //            a2.javaClass.name = int
 
+    val msg: String
+    if (canPerformOperation()) {
+        msg = "Success"
+    } else {
+        msg = "Fail"
+    }
+    println("msg = $msg")
+//    msg = Fail
 
+    val languages = arrayListOf<String>("Java")
+    languages.add("Kotlin")
+    println("languages = $languages")
+//    languages = [Java, Kotlin]
+
+    var answer = 42
+//    answer = "no answer"  var类型的变量其值可变，其类型不可变
 }
+
+fun canPerformOperation(): Boolean = false
 
 fun max(a: Int, b: Int): Int {
     return if (a > b) a else b
