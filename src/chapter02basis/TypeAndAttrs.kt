@@ -1,4 +1,6 @@
-package chapter02kotlin_basis
+package chapter02basis
+
+import java.util.*
 
 /**
  *   Author:Zheng Jun
@@ -7,12 +9,14 @@ package chapter02kotlin_basis
  *   Project:KotlinInAction
  */
 
-class Person {
+public class Person {
     private val name: String
 
     constructor(name: String) {
         this.name = name
     }
+
+
 
     fun getName(): String = name
 }
@@ -25,8 +29,8 @@ class Person2(
 fun main(args: Array<String>) {
 //    val person = Person2("Bob", true)
     var person2 = Person2(isMarried = false, name = "Alex")
-    println("person2 = ${person2}")
-//    person2 = chapter02kotlin_basis.Person2@2f410acf  //默认的toString方法没有复写
+    println("person2 = ${person2.name}")
+//    person2 = chapter02basis.Person2@2f410acf  //默认的toString方法没有复写
     println("person2.name = ${person2.name}")
 //    person2.name = Alex
     println("person2.isMarried = ${person2.isMarried}")
@@ -39,12 +43,14 @@ fun main(args: Array<String>) {
     val rect = Rectangle(13,13)
     rect.tag = "silence"
     println("rect = ${rect}")
-//    rect = Rectangle(height=13, width=13, isSquare=true, tag=immutable)
     rect.width = 12
-    println("rect = ${rect}")
-//    rect = Rectangle(height=13, width=12, isSquare=false, tag=immutable)  由于tag变量的get属性已经被写死，所以无法显示其真正的值
+    println("rect = ${rect}")// 由于tag变量的get属性已经被写死，所以无法显示其真正的值
     rect.showTag()
-//    tag = immutable
+    println("rect.isSquare = ${rect.isSquare}")
+    println("rect.tag = ${rect.tag}")
+
+    val createRandomRectangle = createRandomRectangle()
+    println("createRandomRectangle = $createRandomRectangle")
 }
 
 class Rectangle(val height: Int, var width: Int) {
@@ -53,7 +59,7 @@ class Rectangle(val height: Int, var width: Int) {
             return width == height
         }
 
-    var tag : String = ""
+    var tag : String=""
         get() {
             print("get ")
             return "immutable"}
@@ -66,7 +72,9 @@ class Rectangle(val height: Int, var width: Int) {
     override fun toString(): String {
         return "Rectangle(height=$height, width=$width, isSquare=$isSquare, tag=$tag)"
     }
-
-
 }
 
+fun createRandomRectangle():Rectangle {
+    val random = Random()
+    return Rectangle(width = random.nextInt(100),height = random.nextInt(100))
+}

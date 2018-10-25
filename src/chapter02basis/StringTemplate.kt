@@ -1,4 +1,4 @@
-package chapter02kotlin_basis
+package chapter02basis
 
 /**
  *   Author:Zheng Jun
