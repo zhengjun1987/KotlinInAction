@@ -44,5 +44,5 @@ class FacebookUser(val accountId:Int):User {
 }
 
 fun getNicknameFromId(accountId: Int): String {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    return "FacebookUser$accountId"
 }

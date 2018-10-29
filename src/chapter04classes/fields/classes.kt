@@ -134,6 +134,10 @@ fun main(args: Array<String>) {
 
     val delegatingCollection2 = DelegatingCollection2(listOf("aaa", "nnn"))
     println("delegatingCollection2 = $delegatingCollection2")
+
+    val countingSet = CountingSet<Int>()
+    countingSet.addAll(listOf(1,2,3))
+    println("${countingSet.objectsAdd} objects added, ${countingSet.size} remain")
 }
 
 class CountingSet<T>(val innerSet: MutableCollection<T> = HashSet()) : MutableCollection<T> by innerSet {

@@ -1,6 +1,7 @@
 package chapter02basis
 
 import java.util.*
+import kotlin.Comparator
 
 /**
  *   Author:Zheng Jun
@@ -9,16 +10,23 @@ import java.util.*
  *   Project:KotlinInAction
  */
 
-public class Person {
-    private val name: String
+class Person private constructor(private val name: String) {
 
-    constructor(name: String) {
-        this.name = name
+    companion object {
+        fun fromName(name: String):Person {
+            return Person(name)
+        }
     }
 
+    object NameComparator:Comparator<Person>{
+        override fun compare(o1: Person, o2: Person): Int {
+            return o1.name.compareTo(o2.name)
+        }
+    }
 
-
-    fun getName(): String = name
+    override fun toString(): String {
+        return "Person(name='$name')"
+    }
 }
 
 class Person2(
