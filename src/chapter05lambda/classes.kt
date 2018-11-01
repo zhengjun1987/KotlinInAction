@@ -108,7 +108,27 @@ fun main(args: Array<String>) {
     val letters = listOf("a", "ab", "b")
     println("letters.groupBy(String::first) = ${letters.groupBy(String::first)}")
     println("letters.groupBy(String::last) = ${letters.groupBy(String::last)}")
+
+    val books = kotlin.collections.listOf(
+            Book("红楼梦", listOf("曹雪芹", "高鹗")),
+            Book("水浒传", listOf("罗贯中", "施耐庵")),
+            Book("天龙八部", listOf("金庸", "倪匡")),
+            Book("无证之罪", listOf("紫金陈"))
+    )
+
+    val flatMap = books.flatMap { it.authors }
+    println("flatMap = ${flatMap.javaClass.canonicalName}")
+    println("flatMap = $flatMap")
+
+    println("books.flatMap(Book::authors) = ${books.flatMap(Book::authors)}")
+    println("books.flatMap(Book::name) = ${books.flatMap{ it.name.asIterable() }}")
+
+    println("listOf(\"abc\",\"def\").flatMap(String::toList) = ${listOf("abc", "def").flatMap(String::toList)}")
+
+    println("books.map(Book::authors).flatten() = ${books.map(Book::authors).flatten()}")
 }
+
+class Book(val name: String,val authors:List<String>)
 
 fun salute() {
     println("Salute!")
