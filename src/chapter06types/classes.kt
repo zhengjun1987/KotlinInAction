@@ -10,16 +10,37 @@ package chapter06types
 fun strLen(s: String) = s.length
 
 fun strLenSafe(s: String?) = if (s != null) s.length else 0
+fun strLenSafe2(s: String?) = s?.length ?: 0
 fun strLen2(s: String?) = s?.length
 
-fun printAllCaps(s:String?) {
+fun printAllCaps(s: String?) {
     val upperCase = s?.toUpperCase()
     println(upperCase)
 }
 
-class Employee(val name:String,val manager:Employee?)
+class Employee(val name: String, val manager: Employee?)
 
 fun managerName(employee: Employee) = employee.manager?.name
+
+class Address(val street: String, val zipCode: Int, val city: String, val country: String)
+
+class Company(val name: String, val address: Address?)
+
+class Person(val name: String, val company: Company?)
+
+fun Person.countryName(): String {
+    val country = this.company?.address?.country
+    return if (country == null) "Unknown" else country
+}
+
+fun Person.countryName2(): String {
+    val country = this.company?.address?.country
+    return country ?: "Unknown"
+}
+
+fun sendEmailTo(email:String){
+    println("email = [$email]")
+}
 
 fun main(args: Array<String>) {
     //Null can not be a value of a non-null type String
@@ -40,4 +61,15 @@ fun main(args: Array<String>) {
     val developer = Employee("Bob Smith", ceo)
     println("managerName(ceo) = ${managerName(ceo)}")
     println("managerName(developer) = ${managerName(developer)}")
+
+    val person = Person("Dmitry", null)
+    println("person.countryName() = ${person.countryName()}")
+
+    var email:String? = null
+    if (email != null)
+        sendEmailTo(email)
+
+    email?.let { sendEmailTo(it) }
+    email = "zhengjun1986@outlook.com"
+    email?.let { sendEmailTo(it) }
 }
