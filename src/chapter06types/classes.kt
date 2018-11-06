@@ -69,7 +69,7 @@ fun main(args: Array<String>) {
     if (email != null)
         sendEmailTo(email)
 
-    email?.let { sendEmailTo(it) }
+    println(email?.let { sendEmailTo(it) })
     email = "zhengjun1986@outlook.com"
-    email?.let { sendEmailTo(it) }
+    println(email?.let { sendEmailTo(it) })
 }
