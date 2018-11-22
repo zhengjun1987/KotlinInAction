@@ -11,6 +11,16 @@ class Person(val firstName:String,val lastName:String):Comparable<Person>{
     override fun compareTo(other: Person): Int {
         return compareValuesBy(this,other,Person::lastName,Person::firstName)
     }
+
+    private var _emails:List<Email>? = null
+
+    val emails:List<Email>
+        get() {
+            if (_emails == null) {
+                _emails = loadMails(this)
+            }
+            return _emails!!
+        }
 }
 
 fun main(args: Array<String>) {
