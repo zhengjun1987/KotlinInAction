@@ -12,15 +12,22 @@ class Person(val firstName:String,val lastName:String):Comparable<Person>{
         return compareValuesBy(this,other,Person::lastName,Person::firstName)
     }
 
+    override fun toString(): String {
+        return "Person(firstName='$firstName', lastName='$lastName', _emails=$_emails)"
+    }
+
+
     private var _emails:List<Email>? = null
 
-    val emails:List<Email>
-        get() {
-            if (_emails == null) {
-                _emails = loadMails(this)
-            }
-            return _emails!!
-        }
+//    val emails:List<Email>?
+//        get() {
+//            if (_emails == null) {
+//                _emails = loadMails(this)
+//            }
+//            return _emails
+//        }
+
+    val emails:List<Email>? by lazy { loadMails(this) }
 }
 
 fun main(args: Array<String>) {
@@ -31,4 +38,6 @@ fun main(args: Array<String>) {
     val alice = Person("Alice", "Smith")
     val bob = Person("Bob", "Johnson")
     println("alice < bob = ${alice < bob}")
+
+    println("alice.emails = ${alice.emails}")
 }
