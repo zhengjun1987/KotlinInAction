@@ -35,9 +35,12 @@ fun main(args: Array<String>) {
     println("45.max(61) = ${45.max(61)}")
     println("61.max(45) = ${61.max(45)}")
 
-    var question = "The ultimate question of life, the Universe, and everything"
+    val question = "What is he ultimate question of life, the Universe, and everything?"
     var answer = 42
 //    answer = "no answer"  //var类型的变量其值可变，其类型不可变
+    //val 不可变引用
+    //var 可变引用
+    println("question = ${question}")
     println("answer = $answer")
     answer = 3
     println("answer = $answer")
