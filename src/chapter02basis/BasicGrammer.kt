@@ -1,7 +1,6 @@
 package chapter02basis
 
 import java.util.*
-import kotlin.collections.ArrayList
 
 val string = "I am Kotlin"
 val int = 1314
@@ -17,7 +16,7 @@ fun sum(x: Int, y: Int) = x + y
 * */
 fun foo(n: Int):Int = if (n == 0) 1 else n * foo(n - 1)
 
-fun main() {
+fun main(args: Array<String>) {
     println("string = ${string}")
     println("string.javaClass = ${string.javaClass}")
     println("int = ${int}")

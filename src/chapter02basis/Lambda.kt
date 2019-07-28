@@ -21,7 +21,7 @@ class CountryApp {
     }
 }
 
-fun main() {
+fun main(args: Array<String>) {
     val getBook = ::Book
     println("getBook.javaClass = ${getBook.javaClass}")
     val book = getBook("Dive into Kotlin", "the Waterdrop")
