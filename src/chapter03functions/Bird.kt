@@ -1,5 +1,7 @@
 package chapter03functions
 
+import chapter04classes.sealedclass.Day as Day
+
 /**
  * Created by zhengjun
  * Date: 2019/7/28
@@ -75,3 +77,9 @@ class AirCraft(weight: Double, speed: Int, color: String = "DEFAULT_COLOR") {
 
 
 }
+
+fun schedule(day: Day) =
+    when(day) {
+        is Day.SUN -> "play"
+        else -> "work"
+    }

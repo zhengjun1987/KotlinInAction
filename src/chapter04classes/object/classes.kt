@@ -2,7 +2,6 @@ package chapter04classes.`object`
 
 import chapter02basis.Person
 import chapter04classes.init.getNicknameFromId
-import jdk.nashorn.internal.parser.JSONParser
 import java.awt.Frame
 import java.awt.Window
 import java.awt.event.MouseAdapter
@@ -94,6 +93,11 @@ fun main(args: Array<String>) {
                 object : MouseAdapter(){
                     override fun mouseEntered(e: MouseEvent?) {
                         super.mouseEntered(e)
+                    }
+
+                    override fun mouseClicked(p0: MouseEvent?) {
+                        super.mouseClicked(p0)
+                        println("p0 = [${p0}]")
                     }
                 }
         )

@@ -1,5 +1,7 @@
 package chapter04classes
 
+import chapter04classes.sealedclass.Day
+
 /**
  *   Author:Zheng Jun
  *   E-mail:zhengjun1987@outlook.com
@@ -46,4 +48,10 @@ internal fun TalkativeButton.giveSpeech() {
     //以上两个方法均无法调用的原因：元编程的本质是静态方法，无法获取到子类与父类之间的protected访问权限，
     //只能调用public、internal的方法
     speaking()
+}
+
+fun schedule(day: Day) =
+    when(day) {
+        is Day.SUN -> "play"
+        else -> "work"
 }
