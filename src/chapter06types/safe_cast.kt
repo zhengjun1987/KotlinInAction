@@ -7,7 +7,7 @@ package chapter06types
  *   Project:KotlinInAction
  */
 
-class Stuff(val firstName: String, val lastName: String) {
+class Stuff(val firstName: String, var lastName: String) {
     override fun equals(other: Any?): Boolean {
         val otherPerson = other as? Stuff ?: return false
         return firstName == otherPerson.firstName && lastName == otherPerson.lastName
@@ -16,4 +16,10 @@ class Stuff(val firstName: String, val lastName: String) {
     override fun hashCode(): Int {
         return firstName.hashCode() + 37 * lastName.hashCode()
     }
+
+    override fun toString(): String {
+        return "Stuff(firstName='$firstName', lastName='$lastName')"
+    }
+
+
 }
