@@ -103,4 +103,9 @@ fun main(args: Array<String>) {
     for (day in days) {
         println("$day => ${day.dayOfWeek}")
     }
+
+    val mutableList = mutableListOf(1, 2, 3)
+    println("mutableList = ${mutableList}")
+    mutableList.exchange(0,2)
+    println("mutableList = ${mutableList}")
 }

@@ -1,5 +1,6 @@
 package chapter06types
 
+import chapter07operators.exchange
 import java.util.*
 
 /**
@@ -25,4 +26,10 @@ fun main(args: Array<String>) {
     args.forEachIndexed {index: Int, s: String ->
         println("Argument $index is $s")
     }
+
+
+    val mutableList = mutableListOf(1, 2, 3)
+    println("mutableList = ${mutableList}")
+    mutableList.exchange(0,2)
+    println("mutableList = ${mutableList}")
 }

@@ -19,6 +19,10 @@ fun main(args: Array<String>) {
     list[0] = 0
     println("list = ${list}")
 
+    val listOf = listOf(1, 3, 5, 7, 9)
+    listOf.let { println("it = ${it}") }
+    listOf.apply { println("this = ${this}") }
+    with(listOf) { println("this = ${this}") }
 
     //惰性集合
 //    val intRange = 1..10000
@@ -47,7 +51,6 @@ fun main(args: Array<String>) {
     *   序列操作针对的是每个操作，将原集合针对每个操作计算完之后再进行下一个操作符进行计算
     * */
 //    val lazyResult = intRange.asSequence().filter { it % 2 == 1 }.map { it * 2 }.toList()
-
 
 
     /*
@@ -80,7 +83,7 @@ fun main(args: Array<String>) {
     *       Java SE 6至今仍然是Android开发的主流语言
     *   使用inline关键字修饰函数，其函数体在编译期被嵌入每个被调用的地方，以减少额外生成的匿名类数量和函数执行的时间开销
     * */
-    foo ({ println("Diving into Kotlin...") },{ println("I'm not inlined")})
+    foo({ println("Diving into Kotlin...") }, { println("I'm not inlined") })
     getType<Int>()
     bat { println("return deleted"); return }
     println("To see if I'm executed")
@@ -93,7 +96,7 @@ fun main(args: Array<String>) {
     * */
 }
 
-inline fun <reified T> getType(){
+inline fun <reified T> getType() {
     println(T::class.java)
 }
 
@@ -111,7 +114,7 @@ inline fun bat(/*crossinline*/ function: () -> Unit) {
 /*
 * noinline关键字可以使函数参数中的被修饰参数不被内联
 * */
-inline fun foo(block:() -> Unit,noinline block2: () -> Unit){
+inline fun foo(block: () -> Unit, noinline block2: () -> Unit) {
     println("before block ...")
     block.invoke()
     block2()
