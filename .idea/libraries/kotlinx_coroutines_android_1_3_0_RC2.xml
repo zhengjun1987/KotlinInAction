@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="kotlinx-coroutines-android-1.3.0-RC2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/kotlinx-coroutines-android-1.3.0-RC2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
